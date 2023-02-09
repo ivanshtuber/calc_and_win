@@ -19,6 +19,7 @@ def get_hard_attack():
 
 def compare_valumes(enemy_health, user_total_attack):
     point_difference = abs(enemy_health - user_total_attack)
+    print(point_difference)
     if 0 <= point_difference <= 10:
         return True
     return False
@@ -36,7 +37,7 @@ def get_user_attack():
         input_attack = input('Введи тип атаки: ').lower()
         attack_value = attacks_types[input_attack]()
         print(f'Количество очков твоей атаки: {attack_value}.')
-        total += 1
+        total += attack_value
     return total
 
 
@@ -52,6 +53,8 @@ def run_game():
     yes_no = {
         'Y': True,
         'N': False,
+        'y': True,
+        'n': False,
     }
     replay = input('Чтобы сыграть ещё раз, введи "y"; '
                    'если не хочешь продолжать игру, введи "n": ')
